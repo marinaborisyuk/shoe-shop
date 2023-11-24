@@ -11,15 +11,7 @@ interface ILayoutProps {
 export default function Layout({ title, children }: ILayoutProps) {
   return (
     <>
-      <Script src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID" />
-      <Script id="google-analytics">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}');
-        `}
-      </Script>
+      <Script src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GTM_ID}`} />
       <Head>
         <title>{title ? title : 'Shoes Shop'}</title>
         <meta name="description" content="Shoes Shop. The best solution for your comfort" />
