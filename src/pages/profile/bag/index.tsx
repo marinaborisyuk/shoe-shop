@@ -1,6 +1,6 @@
 // basic
 import { useEffect, useState } from 'react';
-
+import Link from '@mui/material/Link';
 // mui
 import { Grid, Stack, Typography, Box, useMediaQuery} from '@mui/material';
 import theme from '@/utils/mui/theme';
@@ -211,6 +211,7 @@ const Bag = () => {
             <EmptyStateCardBag />
           </Box>
         )}
+        <Link href='https://www.analyticsmania.com/post/tag-in-google-tag-manager-is-not-firing/'>Tag test</Link>
         <Notification />
       </section>
     </Layout>
