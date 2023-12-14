@@ -9,6 +9,7 @@ import { getProductById } from '@/services/cardBagService';
 import { AttrFromData } from '@/types/cardListTypes';
 import { NotificationContext } from './notification';
 import  useSessionStorage  from '@/hooks/useSessionStorage';
+import { gtmButtonClick } from '@/utils/gtm';
 
 // hooks
 
@@ -75,6 +76,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
   function increaseCartQuantity(id: number) {
     setValue((currItems) => {
       if (currItems.find((item) => item.id === id) == null) {
+        gtmButtonClick({itemId: id});
         return [...currItems, { id, quantity: 1 }];
       } else {
         return currItems.map((item) => {

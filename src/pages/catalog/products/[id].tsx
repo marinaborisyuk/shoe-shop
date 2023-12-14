@@ -32,7 +32,8 @@ export default function SingleProductPage() {
 
   useEffect(() => {
     !product && router.push(Routes.error404);
-  }, [product]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const { data: sizes, isLoading: sizesLoading } = useQuery(['sizes'], () =>
     getDataWithField('sizes', 'value')

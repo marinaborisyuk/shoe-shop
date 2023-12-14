@@ -54,6 +54,7 @@ const CardList: React.FC = () => {
     queryFn: () => getFilteredData(query),
     keepPreviousData: true,
   });
+  console.log(data);
   const queryDownMd = useMediaQuery<unknown>(theme.breakpoints.down('md'));
   if (isError) {
     Router.push('/404');

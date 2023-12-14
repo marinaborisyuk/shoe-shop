@@ -15,6 +15,6 @@ export default function Error404() {
     <ErrorLayout title={mockData.title} >
       <Typography variant="h2">{mockData.title}</Typography>
       <Typography variant="h5Gray" sx={{ fontSize: { xs: '12px' }}}>{mockData.description}</Typography>
- </ErrorLayout>
+    </ErrorLayout>
   );
 }

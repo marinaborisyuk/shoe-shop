@@ -2,7 +2,7 @@
 import { MouseEventHandler, useContext, useEffect, useState } from 'react';
 
 // mui
-import { Box } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import { useTheme, Theme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
@@ -28,9 +28,12 @@ import Notification from '@/components/UI/Notification/Notificaton';
 
 // styles
 import { CustomSearchOverlay } from '@/styles/pageStyles/SearchStyles';
+import { gtmVirtualPageView } from '@/utils/gtm';
+import { useRouter } from 'next/router';
 
 // FUNCTIONAL COMPONENT
 export default function SearchResultPage(): JSX.Element {
+  const router = useRouter();
   const theme = useTheme<Theme>();
   const queryUpMd = useMediaQuery<unknown>(theme.breakpoints.up('md'));
 
@@ -39,9 +42,23 @@ export default function SearchResultPage(): JSX.Element {
   const { hide, onHideFilters } = context as IFiltersContext;
 
   useEffect(() => {
-    setMobileVer(true);
+    const pageData = {
+      pageName: document.title,
+      pathname: router.pathname,
+      query: router.query,
+      asPath: router.asPath,
+      isFallback: router.isFallback,
+      basePath: router.basePath,
+      locale: router.locale,
+      locales: router.locales,
+      defaultLocale: router.defaultLocale,
+      domainLocales: router.domainLocales,
+      isReady: router.isReady,
+      isPreview: router.isPreview,
+    }
 
-    return () => setMobileVer(false);
+    gtmVirtualPageView(pageData);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

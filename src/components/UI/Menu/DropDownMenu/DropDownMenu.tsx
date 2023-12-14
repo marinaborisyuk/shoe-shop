@@ -28,14 +28,14 @@ import { useShoppingCart } from '@/providers/shoppingCard';
 // interface
 export interface IDropDownMenuProps {
   productID: number;
-  productName: string;
+  product: string;
   top?: string;
   right?: string;
 }
 
 const DropDownMenu: React.FC<IDropDownMenuProps> = ({
   productID,
-  productName,
+  product,
   top,
   right,
 }): JSX.Element => {
