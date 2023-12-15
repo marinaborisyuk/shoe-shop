@@ -129,7 +129,7 @@ const CardList: React.FC = () => {
                       productPrice={price}
                       productId={id}
                     >
-                      <DropDownMenu productName={name} productID={id} />
+                      <DropDownMenu product={} productID={id} />
                     </Card>
                   </Grid>
                 )

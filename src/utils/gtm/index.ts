@@ -11,3 +11,7 @@ export const gtmButtonClick = (rest: any) => {
     ...rest
   });
 }
+
+export cosnt gtmAddToCart = (rest: AddToCartEventData) => {
+
+}

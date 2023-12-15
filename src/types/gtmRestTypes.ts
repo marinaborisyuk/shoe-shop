@@ -2,6 +2,6 @@ import { CartItem } from "@/providers/shoppingCard";
 
 export interface AddToCartEventData {
   currency: string;
-  items: Array<CartItem>;
+  items: Array<Pick<CartItem, ''>;
 
 }
